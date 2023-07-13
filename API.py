@@ -24,7 +24,7 @@ def welcome():
 @app.route('/predict',methods=["POST"]) # by default it's GET method because we will pass our features as parameters
 def predict_A_sample():
     """
-    Let's see what is the coarse
+    Let's landmark faces
     ---
     parameters:
         
@@ -67,7 +67,7 @@ def predict_A_sample():
 def predict_A_File():
 
     """
-    Let's see what is the coarse
+    Let's landmark faces
     ---
     parameters:
         - name: file
@@ -81,7 +81,7 @@ def predict_A_File():
     """
     df_test=pd.read_csv(request.files.get("file")) 
     test_data=np.array(df_test)
-    test_data=test_data.reshape(test_data.shape[0],224,224,3)
+    test_data=test_data.reshape(test_data.shape[0],96,96,1)
     prediction=classifier.predict(test_data)
     return "The digits are: " + str(list(prediction))
 
